@@ -1,0 +1,3 @@
+[submodule "external/text_based_adventure_game"]
+	path = external/text_based_adventure_game
+	url = https://github.com/codinggrace/text_based_adventure_game.git
