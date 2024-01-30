@@ -1,70 +1,131 @@
-# Text_based_Adventure_Game-Technologies-Shangzhi-LOU-CDOF2
+### QuizGame-HamzaHaline-CDOF2
 
-# PRE-REQUISITES
 
-Your laptop with 3.6.x (onwards) installed.
+## Description
+Welcome to the Quiz Game! This is a simple console-based quiz game coded in python. Here players can answer a series of questions to test their knowledge in various subjects.The game consists of a series of questions, and the player has to choose the correct answer from the given options. The player's score is displayed at the end of the game.
 
-NOTE: Those with Linux and MacOSX would have Python installed by default, no action required.
+## How to Run the Project
+To make this project you need to follow this step:
+1) Clone the repository to your local machine:
+   ```bash
+    git clone https://github.com/your-username/quiz-game.git
+    ```
 
-Windows: Download the version for your laptop via [https://www.python.org/downloads/](https://www.python.org/downloads/)
+2) Navigate to the project directory:
+    ```bash
+    cd QuizGame-HamzaHaline-CDOF2
+    ```
 
-# NOTES
+3) Installation
+Install package with pip
+    ```bash
+    pip install time
+    ```
 
-- In your preferred editor, make sure indentation is set to "4 spaces".
-- There's an [instructor's guide](https://coding-grace-guide.readthedocs.io/en/latest/guide/lessonplans/beginners-python-text-based-adventure.html) that accompany this workshop.
+4) Deployment
+To deploy this project run this code or the code in quiz.py
+    ```bash
+        import time
 
-# Run Guide
+        def sleep_time():
+            print("Chargement de votre questionnaire", end="")
+            for _ in range(100):
+                print(".", end="")
+                time.sleep(0.05)
+            print(" ")
 
-- Install Python.
-- Install Sublime Text Editor
-- (Windows) Set PATH in environmental variables so python can run easily in cmd.
-- See if "python" runs by typing `python` in the terminal/cmd
-- Ask people to type `print("hello")`
-  - Ran their first piece of Python code.
-  - Type `exit()` to exit Python interpretor.
-- Switch to Sublime Text Editor.
-  - File > New File
-  - File > Save As...
-    - myfirstscript.py
-  - Type on first line `print("hello, this is my first script")`
-  - File > Save
-- Switch to CMD/Terminal.
-- Type `python myfirstscript.py`
-  - You just ran your first Python script via command line.
+        def pose_question(question, options, reponse_correcte):
+            print(question)
+            for i, option in enumerate(options, start=1):
+                print(f"{i}. {option}")
 
-Now you can begin with game_01.py. :-)
+            reponse = input("Votre réponse : ").lower()
 
-# REFERENCES
+            if reponse == reponse_correcte:
+                print("Correct !")
+                return 1
+            else:
+                print(f"Erreur. La réponse correcte était : {reponse_correcte}")
+                return 0
 
-- Inspired by Learning Python the Hard Way: [http://learnpythonthehardway.org/](http://learnpythonthehardway.org/) (See Chapter 43 on one way of implementing FSM)
-- Other resources: [http://www.codinggrace.com/resources/](http://www.codinggrace.com/resources/)
+        def jouer_quiz():
+            score = 0
 
-# Contribution Guide
+            print("Bienvenue au Quiz!")
 
-We welcome contributions of all kinds, from bug fixes and documentation improvements to new features and integrations.
+            nom = input("Entrez votre nom : ")
+            print(f"\nBonjour {nom}!\n")
 
-- Reporting Bugs
+            sleep_time()
 
-If you find a bug in the project, please open an issue. The issue title should clearly describe the bug, and the issue description should include steps to reproduce the bug.
+            print("D'accord, commençons le quiz!\n")
 
-- Adding New Features
+            # Pose de questions
+            score += pose_question(
+                "Quel est la capitale de la France?",
+                ["Paris", "Londres", "Berlin", "Madrid"],
+                "paris"
+            )
 
-If you have an idea for a new feature, please open an issue to discuss it with the project maintainers. Once the feature has been approved, you can start working on it.
+            score += pose_question(
+                "Combien de continents y a-t-il sur Terre?",
+                ["5", "6", "7", "8"],
+                "7"
+            )
 
-- Contributing Code
+            score += pose_question(
+                "Quelle est la couleur du ciel par une journée claire?",
+                ["Bleu", "Vert", "Rouge", "Jaune"],
+                "bleu"
+            )
 
-To contribute code, you will need to fork the project repository. Then, create a new branch in your fork repository, with a name that reflects the change you are making, such as fix-typo or add-feature-x.
+            # Afficher le score final
+            print(f"\nMerci d'avoir joué, {nom}!")
+            print(f"Votre score final est de {score} sur 3.")
 
-Make your changes in your branch, and make sure your code follows the project's coding style and passes the project's tests.
+        if __name__ == "__main__":
+            jouer_quiz()
+    ```
 
-Once you have finished making your changes, open a pull request to the project's master branch. The pull request title and description should clearly explain what changes you made and why you made them.
 
-The project maintainers will review your pull request. If necessary, you may be asked to make changes. Once your pull request is approved, it will be merged into the master branch.
 
-Thank you for contributing to the project!
+## How to Contribute
+We welcome contributions to improve the quiz game! If you'd like to contribute, follow these steps:
 
-# License and Copyright
+1. Fork the repository.
 
-This project is licensed under the MIT license. You can find more information in the LICENSE file in the project repository.
+2. Clone your fork to your local machine:
+    ```bash
+    git clone https://github.com/HamzaHaline/QuizGame-HamzaHaline-CDOF2
+    ```
 
-Copyright © 2024 Shangzhi LOU
+3. Create a new branch for your feature or bug fix:
+    ```bash
+    git checkout -b feature-name
+    ```
+
+4. Make your changes and commit them:
+    ```bash
+    git add .
+    git commit -m "Description of your changes"
+    ```
+
+5. Push the changes to your fork:
+    ```bash
+    git push origin feature-name
+    ```
+
+6. Create a pull request on GitHub.
+
+
+Feel free to download, use, and modify the code to suit your needs. Happy coding!
+
+## Authors
+Hamza HALINE - Initial work and maintenance
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+## Acknowledgments
+Special thanks to Mr.Gwénolé MARTIN for his help building this project
+
